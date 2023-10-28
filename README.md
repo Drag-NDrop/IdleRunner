@@ -27,7 +27,7 @@ For IdleRunner to work properly, we need a number of things setup first.
 ### The PROMPT_COMMAND flag
 The way you usually interact with shells like Bash, is via. a prompt.
 What this prompt_command flag does, is to fire a command, just before the prompt is presented to you.
-In other words, When you log on, and whenever you type a command.
+In other words, When you log on, and whenever a terminal command you've typed, finishes.
 
 Utilizing the above, enables us to figure out, when the shell is being used by users.
 It allows us to figure out how much time has passed, since last time a user used bash on the server. Which takes us quite a long way.
