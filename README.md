@@ -13,7 +13,7 @@ Why? Because we are missing the X Window System.
 We simply don't have a need for it on headless operating systems.
 So, we need another way, to reliably figure out, when a user is active, and when the user is not.
 
-The task of figuring this out, were suggested to us by a developer from Berkeley University., while discussing the internal workings of their BOINC project. Happily. We accept the challenge.
+The task of figuring this out, were suggested to us by a developer from Berkeley University, while discussing their BOINC project. Happily. We accept the challenge.
 
 ## Design
 For IdleRunner to work properly, we need a number of things setup first.
