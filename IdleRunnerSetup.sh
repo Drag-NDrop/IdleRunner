@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#Config file location
+config_file=".IdleRunner.config"
 
 
 if ! dpkg -l | grep -q cron; then
@@ -13,7 +14,7 @@ sudo systemctl start cron
 sudo usermod -aG sudo "$(whoami)"
 
 # Define the path to the config file (assuming the config file is located in the user's home directory)
-config_file="$HOME/IdleRunner/.IdleRunner.config"
+
 
 ### Load config file ###
 # Check if the config file exists
