@@ -29,23 +29,25 @@ if [ -f "$config_file" ]; then
       # Use the key and value as needed
       case "$key" in
         PathToActivityFile)
-          PathToActivityFile="$value"
+            PathToActivityFile="$value"
           ;;
         ConsiderMeIdleAfterMinutes)
-          ConsiderMeIdleAfterMinutes="$value"
+            ConsiderMeIdleAfterMinutes="$value"
           ;;
         FireThisWhenIdle)
-          FireThisWhenIdle="$value"
+            FireThisWhenIdle="$value"
           ;;
         FireThisWhenNotIdle)
-          FireThisWhenNotIdle="$value"
+            FireThisWhenNotIdle="$value"
           ;;
         CronFrequencyInMinutes)
-          CronFrequencyInMinutes="$value"
+            CronFrequencyInMinutes="$value"
           ;;
         # Add more key cases as needed
         *)
-          echo "Unknown setting: $key"
+            if [ -f "$config_file" ]; then
+            echo "Unknown setting: $key"
+            fi
           ;;
       esac
     fi
@@ -55,13 +57,13 @@ else
 fi
 
 ### // Done loading config file ###
-
+if [ -f "$config_file" ]; then
 echo "Setting 0: $PathToActivityFile"
 echo "Setting 1: $ConsiderMeIdleAfterMinutes" # Debug
 echo "Setting 2: $FireThisWhenIdle" # Debug
 echo "Setting 3: $FireThisWhenNotIdle" # Debug
 echo "Setting 4: $CronFrequencyInMinutes" # Debug
-
+fi
 # Define the script and its path
 script_path="$HOME/IdleRunner/IdleRunner.sh"
 
