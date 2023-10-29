@@ -17,11 +17,11 @@ InstallBoincClient(){
 
     mkdir ~/boinc
     cd ~/boinc
-    sudo apt purge boinc*
+    
     sudo add-apt-repository --remove ppa:costamagnagianfranco/boinc
     add-apt-repository universe
     sudo apt update
-    sudo apt-get install boinc-client
+    sudo apt-get install boinc-client --assume-yes
     sudo usermod -aG boinc "$(whoami)"
     
 
@@ -155,6 +155,20 @@ EOF
     echo "Full path to the config file: $configfilepath"
     echo "---------------------------------------------"
 
+    if [ ! -e "$configfilepath" ]; then
+        echo "File does not exist. Creating it..."
+        
+        # Use sudo to create the file with appropriate permissions
+        sudo touch "$configfilepath"
+        
+        # Check if the file was created successfully
+        if [ "$?" -eq 0 ]; then
+            echo "File created successfully."
+        else
+            echo "Failed to create the file. Check your permissions."
+        fi
+    fi
+
     # Check write permissions and use sudo if necessary
     if [ ! -w "$configfilepath" ]; then
         echo "You don't have write permissions for $configfilepath."
@@ -180,11 +194,42 @@ EOF
     echo "Make a note of it if needed, as this information will not be shown again."
 }
 
+BoincMonitor(){
+    while [[ 1 -eq 1 ]]
+    do
+            clear
+
+    # Run boinccmd and store the output
+    tasks_output=$(boinccmd --get_tasks)
+
+    # Define variables to store task information
+    active_task_state=""
+    fraction_done=""
+
+    # Process the output line by line
+    while read -r line; do
+        if [[ $line == *"active_task_state: "* ]]; then
+            active_task_state=$(echo "$line" | awk -F ": " '{print $2}')
+        elif [[ $line == *"fraction done: "* ]]; then
+            fraction_done=$(echo "$line" | awk -F ": " '{print $2}')
+            echo "Active Task State: $active_task_state, Fraction Done: $fraction_done"
+            active_task_state=""
+            fraction_done=""
+        fi
+    done <<< "$tasks_output"
+
+        sleep 2
+    done
+
+
+}
+
+
 UninstallBoinc() {
-    sudo systemctl stop boinc-client 
-    sudo apt purge --auto-remove boinc-client boinc-manager 
-    sudo apt autoremove -y 
     sudo systemctl disable boinc-client
+    sudo systemctl stop boinc-client 
+    sudo apt purge --auto-remove -y boinc-client boinc-manager 
+    sudo apt purge boinc*
     sudo rm ~/client_state.xml
     sudo rm ~/coproc_info.xml
     sudo rm ~/gui_rpc_auth.cfg
@@ -196,7 +241,7 @@ UninstallBoinc() {
 
 
 
-UninstallBoinc
+#UninstallBoinc
 # Add apt repo
 # Install Boinc 
 # Add current user, to boinc
