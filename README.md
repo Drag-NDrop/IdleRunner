@@ -13,7 +13,7 @@ Why? Because we are missing the X Window System.
 We simply don't have a need for it on headless operating systems.
 So, we need another way, to reliably figure out, when a user is active, and when the user is not.
 
-The task of figuring this out, were suggested to us by a developer from Berkeley University., while discussing the internal workings of their BOINC project. Happily. We accept the challenge.
+The task of figuring this out, were suggested to us by a developer from Berkeley University, while discussing their BOINC project. Happily. We accept the challenge.
 
 ## Design
 For IdleRunner to work properly, we need a number of things setup first.
@@ -27,7 +27,7 @@ For IdleRunner to work properly, we need a number of things setup first.
 ### The PROMPT_COMMAND flag
 The way you usually interact with shells like Bash, is via. a prompt.
 What this prompt_command flag does, is to fire a command, just before the prompt is presented to you.
-In other words, When you log on, and whenever you type a command.
+In other words, When you log on, and whenever a terminal command you've typed, finishes.
 
 Utilizing the above, enables us to figure out, when the shell is being used by users.
 It allows us to figure out how much time has passed, since last time a user used bash on the server. Which takes us quite a long way.
