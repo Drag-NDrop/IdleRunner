@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Define the PROMPT_COMMAND
@@ -16,3 +15,8 @@ if [ -f /etc/bash.bashrc ]; then
 else
     echo "Global Bash configuration file not found."
 fi
+
+
+
+
+

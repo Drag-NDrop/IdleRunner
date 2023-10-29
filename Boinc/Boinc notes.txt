@@ -1,0 +1,67 @@
+# Boinc project graphs
+#https://grafana.kiska.pw/d/boinc/boinc?orgId=1&from=now-30d&to=now&var-project=Universe@Home
+
+#https://github.com/BOINC/boinc/issues/5226
+
+#### Install BOINC
+## https://boinc.berkeley.edu/wiki/Installing_BOINC_on_Debian_or_Ubuntu
+
+### Universe, master url: https://universeathome.pl/universe/
+
+
+mkdir ~/boinc
+cd ~/boinc
+sudo apt purge boinc*
+sudo add-apt-repository --remove ppa:costamagnagianfranco/boinc
+add-apt-repository universe
+sudo apt update
+sudo apt-get install boinc-client
+sudo usermod -aG boinc "$(whoami)"
+
+
+
+
+# Start Boinc
+sudo systemctl enable --now boinc-client
+
+#Validate Boinc is running
+ps aux | grep boinc
+
+#Kill boinc
+systemctl stop boinc-client
+systemctl start boinc-client
+pkill boinc
+
+
+# Interact with boinc
+boinccmd --get_project_config
+boinccmd --get_state
+# Pause Boinc
+boinccmd --project http://project_url suspend
+boinccmd --project https://universeathome.pl/universe/ suspend
+
+# Resume Boinc
+boinccmd --project http://project_url resume
+boinccmd --project https://universeathome.pl/universe/ resume
+
+
+# Get client version
+sudo boinccmd --client_version
+
+#Get Project status
+sudo boinccmd --get_project_status
+
+#See location of data dir
+cat /etc/boinc-client/config.properties
+
+#Location of data dir: /var/lib/boinc-client
+
+#Uninstall BOINC
+sudo systemctl stop boinc-client 
+sudo apt purge --auto-remove boinc-client boinc-manager 
+sudo apt autoremove -y 
+sudo systemctl disable boinc-client
+
+
+
+echo "Heya!!"
