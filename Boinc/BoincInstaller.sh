@@ -19,7 +19,7 @@ InstallBoincClient(){
     cd ~/boinc
     
     sudo add-apt-repository --remove ppa:costamagnagianfranco/boinc
-    add-apt-repository universe
+    sudo add-apt-repository universe
     sudo apt update
     sudo apt-get install boinc-client --assume-yes
     sudo usermod -aG boinc "$(whoami)"
