@@ -67,7 +67,7 @@ echo "PathToActivityFile: $PathToActivityFile"
 echo "Idle timeout(minutes): $ConsiderMeIdleAfterMinutes" # Debug
 echo "Command while idle: $FireThisWhenIdle" # Debug
 echo "Command while not: $FireThisWhenNotIdle" # Debug
-echo "Chron frequency: $CronFrequencyInMinutes" # Debug
+echo "Cron frequency: $CronFrequencyInMinutes" # Debug
 fi
 # Define the script and its path
 script_path="$HOME/IdleRunner/IdleRunner.sh"
