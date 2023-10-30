@@ -29,6 +29,9 @@ if [ -f "$config_file" ]; then
 
       # Use the key and value as needed
       case "$key" in
+       Debug)
+            Debug="$value"
+          ;;
         PathToActivityFile)
             PathToActivityFile="$value"
           ;;
@@ -59,11 +62,12 @@ fi
 
 ### // Done loading config file ###
 if [ -f "$config_file" ]; then
-echo "Setting 0: $PathToActivityFile"
-echo "Setting 1: $ConsiderMeIdleAfterMinutes" # Debug
-echo "Setting 2: $FireThisWhenIdle" # Debug
-echo "Setting 3: $FireThisWhenNotIdle" # Debug
-echo "Setting 4: $CronFrequencyInMinutes" # Debug
+echo "Debug: $Debug"
+echo "PathToActivityFile: $PathToActivityFile"
+echo "Idle timeout(minutes): $ConsiderMeIdleAfterMinutes" # Debug
+echo "Command while idle: $FireThisWhenIdle" # Debug
+echo "Command while not: $FireThisWhenNotIdle" # Debug
+echo "Chron frequency: $CronFrequencyInMinutes" # Debug
 fi
 # Define the script and its path
 script_path="$HOME/IdleRunner/IdleRunner.sh"
