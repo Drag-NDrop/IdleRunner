@@ -256,10 +256,3 @@ sudo systemctl start boinc-client
 # Verify IdleRunner works
 
 
-
-
-#boinccmd --create_account \
-#  --url "https://universeathome.pl/universe/" \
-#  --email "m.sandgaard@outlook.com" \
-#  --passwd "testehest123" \
-#  --user_name "MartinS222222"
