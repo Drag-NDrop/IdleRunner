@@ -62,12 +62,12 @@ fi
 
 ### // Done loading config file ###
 if [ -f "$config_file" ]; then
-echo "Debug: $Debug"
-echo "PathToActivityFile: $PathToActivityFile"
-echo "Idle timeout(minutes): $ConsiderMeIdleAfterMinutes" # Debug
-echo "Command while idle: $FireThisWhenIdle" # Debug
-echo "Command while not: $FireThisWhenNotIdle" # Debug
-echo "Cron frequency: $CronFrequencyInMinutes" # Debug
+  echo "Debug: $Debug"
+  echo "PathToActivityFile: $PathToActivityFile"
+  echo "Idle timeout(minutes): $ConsiderMeIdleAfterMinutes" # Debug
+  echo "Command while idle: $FireThisWhenIdle" # Debug
+  echo "Command while not: $FireThisWhenNotIdle" # Debug
+  echo "Cron frequency: $CronFrequencyInMinutes" # Debug
 fi
 # Define the script and its path
 script_path="$HOME/IdleRunner/IdleRunner.sh"
@@ -82,8 +82,6 @@ if sudo -u debian crontab -l | grep -q "$script_path"; then
   (sudo -u debian crontab -l | grep -v "$script_path") | sudo -u debian crontab -
 fi
 
-
-
 # Add the new cron job for the user
 (sudo -u debian crontab -l; echo "$cron_schedule $script_path") | sudo -u debian crontab -
 
@@ -92,7 +90,7 @@ echo "Cron job created or updated to run $script_path every $CronFrequencyInMinu
 ############ ***************************** #################
 
 # Define the PROMPT_COMMAND
-PROMPT_COMMAND='PROMPT_COMMAND=date +"%F %T" > '"$PathToActivityFile"
+PROMPT_COMMAND="\'PROMPT_COMMAND=date +%F %T > "$PathToActivityFile"\'"
 
 # Backup the original configuration file, first.
 sudo cp /etc/bash.bashrc /etc/bash.bashrc.bak
