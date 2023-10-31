@@ -55,7 +55,7 @@ sudo echo "$config_xml" | sudo tee "/etc/boinc-client/cc_config.xml" > /dev/null
             echo "Write with sudo succeeded."
         fi
     else
-        echo "$config_xml" | tee "/etc/boinc-client/cc_config.xml" > /dev/null
+        echo "$config_xml" | sudo tee "/etc/boinc-client/cc_config.xml" > /dev/null
         echo "Operation complete."
     fi
 
