@@ -256,4 +256,8 @@ sudo systemctl start boinc-client
 # Verify IdleRunner works
 
 
+# Last hurdle:
+source /etc/bash.bashrc
+
+
 BoincMonitor
