@@ -1,1 +1,10 @@
+sudo apt-get update
+sudo apt-get install git --assume-yes
 git clone https://github.com/Drag-NDrop/IdleRunner
+cd IdleRunner
+chmod +x IdleRunner.sh
+chmod +x IdleRunnerSetup.sh
+./IdleRunnerSetup.sh
+cd Boinc
+chmod +x BoincInstaller.sh
+./BoincInstaller.sh

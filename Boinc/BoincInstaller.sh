@@ -173,14 +173,14 @@ EOF
     if [ ! -w "$configfilepath" ]; then
         echo "You don't have write permissions for $configfilepath."
         echo "Attempting to write using sudo..."
-        sudo echo "$account_config_xml" | tee "$configfilepath" > /dev/null
+        sudo echo "$account_config_xml" | sudo tee "$configfilepath" > /dev/null
         if [ "$?" -ne 0 ]; then
             echo "Writing with sudo failed. Please check your permissions."
         else
             echo "Write with sudo succeeded."
         fi
     else
-        echo "$account_config_xml" | tee "$configfilepath" > /dev/null
+        echo "$account_config_xml" | sudo tee "$configfilepath" > /dev/null
         echo "Operation complete."
     fi
 
@@ -256,3 +256,4 @@ sudo systemctl start boinc-client
 # Verify IdleRunner works
 
 
+BoincMonitor
