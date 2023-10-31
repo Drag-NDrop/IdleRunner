@@ -22,8 +22,7 @@ InstallBoincClient(){
     sudo add-apt-repository universe
     sudo apt update
     sudo apt-get install boinc-client --assume-yes
-    sudo usermod -aG boinc "$(whoami)"
-    
+    sudo usermod -a -G boinc $USER
 
 
 config_xml=$(cat <<'EOF'
@@ -186,6 +185,8 @@ EOF
 
     echo "Press ENTER to continue..."
     read -n 1 -s
+    # Make sure the client is now up to speed
+    sudo systemctl restart boinc-client
 
     clear
     echo "The BOINC client is now configured with the details you entered."
@@ -256,8 +257,16 @@ sudo systemctl start boinc-client
 # Verify IdleRunner works
 
 
-# Last hurdle:
-source /etc/bash.bashrc
-
-
 BoincMonitor
+
+
+
+
+
+
+
+# Ny hurdle: 
+
+#Can't get RPC password: /var/lib/boinc-client/gui_rpc_auth.cfg exists but can't be read.  See https://boinc.berkeley.edu/gui_rpc.php
+#Only operations not requiring authorization will be allowed.
+

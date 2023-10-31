@@ -106,5 +106,5 @@ else
   echo "Global Bash configuration file not found."
 fi
 
-
-
+#Reload the global bash rc..
+source /etc/bash.bashrc
