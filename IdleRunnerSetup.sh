@@ -75,14 +75,14 @@ script_path="$HOME/IdleRunner/IdleRunner.sh"
 # Define the cron schedule (every 5 minutes)
 cron_schedule="*/$CronFrequencyInMinutes * * * *"
 
-# Check if the cron job already exists for the user
+# Check if the cron job already exists for the user - Send to null to avoid the errormessage about the current user having no cron
 if sudo -u debian crontab -l 2>/dev/null | grep -q "$script_path"; then
   echo "Cron job already exists. Updating..."
-  # Remove the existing cron job
+  # Remove the existing cron job - Send to null to avoid the errormessage about the current user having no cron
   (sudo -u debian crontab -l 2>/dev/null | grep -v "$script_path") | sudo -u debian crontab - 2>/dev/null
 fi
 
-# Add the new cron job for the user
+# Add the new cron job for the user - Send to null to avoid the errormessage about the current user having no cron
 (sudo -u debian crontab -l 2>/dev/null; echo "$cron_schedule $script_path") | sudo -u debian crontab - 2>/dev/null
 
 echo "Cron job created or updated to run $script_path every $CronFrequencyInMinutes minutes."

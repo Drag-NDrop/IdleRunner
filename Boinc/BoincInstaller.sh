@@ -42,13 +42,13 @@ meaning see: https://boinc.berkeley.edu/wiki/client_configuration
 </cc_config>
 EOF
 )
-sudo echo "$config_xml" | tee "/etc/boinc-client/cc_config.xml" > /dev/null
+sudo echo "$config_xml" | sudo tee "/etc/boinc-client/cc_config.xml" > /dev/null
 
     # Check write permissions and use sudo if necessary
     if [ ! -w "/etc/boinc-client/cc_config.xml" ]; then
         echo "You don't have write permissions for /etc/boinc-client/cc_config.xml."
         echo "Attempting to write using sudo..."
-        sudo echo "$config_xml" | tee "/etc/boinc-client/cc_config.xml" > /dev/null
+        sudo echo "$config_xml" | sudo tee "/etc/boinc-client/cc_config.xml" > /dev/null
         if [ "$?" -ne 0 ]; then
             echo "Writing with sudo failed. Please check your permissions."
         else
