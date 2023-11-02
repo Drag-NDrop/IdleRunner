@@ -90,7 +90,20 @@ echo "Cron job created or updated to run $script_path every $CronFrequencyInMinu
 ############ ***************************** #################
 
 # Define the PROMPT_COMMAND
-PROMPT_COMMAND="PROMPT_COMMAND=\"date '+%F %T' > \"$PathToActivityFile\"\" && /home/debian/IdleRunner/IdleRunner.sh > /dev/null"
+#PROMPT_COMMAND="PROMPT_COMMAND=\"date '+%F %T' > \"$PathToActivityFile\"\" && /home/debian/IdleRunner/IdleRunner.sh > /dev/null"
+
+PROMPT_COMMAND <<-EOF
+#Added by IdleRunner
+Update_ActivityLog_And_Run_IdleRunner() {
+    local timestamp=$(date '+%F %T')
+    echo "$timestamp" > "$PathToActivityFile"
+    /home/debian/IdleRunner/IdleRunner.sh > /dev/null
+}
+PROMPT_COMMAND="update_activity_and_run_script"
+
+EOF
+
+
 
 # Backup the original configuration file, first.
 sudo cp /etc/bash.bashrc /etc/bash.bashrc.bak
@@ -99,7 +112,9 @@ sudo cp /etc/bash.bashrc /etc/bash.bashrc.bak
 if [ -f /etc/bash.bashrc ]; then
   # Append the PROMPT_COMMAND to the configuration file with comments
   echo "The following was added to your global bashrc:"
-  echo -e "# Added by IdleRunner\n$PROMPT_COMMAND" | sudo tee -a /etc/bash.bashrc
+  #echo -e "# Added by IdleRunner\n$PROMPT_COMMAND" | sudo tee -a /etc/bash.bashrc
+   echo -e "$PROMPT_COMMAND" | sudo tee -a /etc/bash.bashrc
+
   echo "A backup was made of your global bashrc configuration beforehand. (/etc/bash.bashrc.bak)."
 else
   echo "Global Bash configuration file not found."
