@@ -92,16 +92,17 @@ echo "Cron job created or updated to run $script_path every $CronFrequencyInMinu
 # Define the PROMPT_COMMAND
 #PROMPT_COMMAND="PROMPT_COMMAND=\"date '+%F %T' > \"$PathToActivityFile\"\" && /home/debian/IdleRunner/IdleRunner.sh > /dev/null"
 
-PROMPT_COMMAND <<-EOF
-#Added by IdleRunner
+PROMPT_COMMAND=$(cat <<EOF
+# Added by IdleRunner
 Update_ActivityLog_And_Run_IdleRunner() {
-    local timestamp=$(date '+%F %T')
-    echo "$timestamp" > "$PathToActivityFile"
+    local timestamp=\$(date '+%F %T')
+    echo "\$timestamp" > "$PathToActivityFile"
     /home/debian/IdleRunner/IdleRunner.sh > /dev/null
 }
 PROMPT_COMMAND="Update_ActivityLog_And_Run_IdleRunner"
-
 EOF
+)
+
 
 
 
