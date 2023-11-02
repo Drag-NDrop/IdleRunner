@@ -193,6 +193,8 @@ EOF
     echo "If you wish to see how much work you've contributed using this solution, visit:"
     echo -e "\e[36mhttps://universeathome.pl/universe/home.php\e[0m"
     echo "Make a note of it if needed, as this information will not be shown again."
+    sudo chmod 644 /var/lib/boinc-client/gui_rpc_auth.cfg
+    sudo systemctl restart boinc-client
 }
 
 BoincMonitor(){
