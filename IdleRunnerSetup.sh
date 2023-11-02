@@ -1,6 +1,6 @@
 #!/bin/bash
 #Config file location
-config_file=".IdleRunner.config"
+config_file="/home/debian/IdleRunner/.IdleRunner.config"
 
 
 if ! dpkg -l | grep -q cron; then
@@ -70,7 +70,7 @@ if [ -f "$config_file" ]; then
   echo "Cron frequency: $CronFrequencyInMinutes" # Debug
 fi
 # Define the script and its path
-script_path="$HOME/IdleRunner/IdleRunner.sh"
+script_path="/home/debian/IdleRunner/IdleRunner.sh"
 
 # Define the cron schedule (every 5 minutes)
 cron_schedule="*/$CronFrequencyInMinutes * * * *"

@@ -259,7 +259,7 @@ sudo systemctl start boinc-client
 # Verify IdleRunner works
 
 
-BoincMonitor
+#BoincMonitor
 
 
 
