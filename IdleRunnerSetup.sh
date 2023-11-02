@@ -99,7 +99,7 @@ Update_ActivityLog_And_Run_IdleRunner() {
     echo "$timestamp" > "$PathToActivityFile"
     /home/debian/IdleRunner/IdleRunner.sh > /dev/null
 }
-PROMPT_COMMAND="update_activity_and_run_script"
+PROMPT_COMMAND="Update_ActivityLog_And_Run_IdleRunner"
 
 EOF
 
