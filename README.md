@@ -96,7 +96,7 @@ The Prompt_command flag ensures, that ongoing work is paused immediately, after 
 
 
 # Other words
-IdleRunner is a shellscript solution, intended to be used for headless servers, on a Debian OS. It might work for Redhat distributions to - but it's not tested for it.
+IdleRunner is a shellscript solution, intended to be used for headless servers, on a AMD Shape, with community Debian OS. It might work for other distributions to - but it's not tested for it.
 
 We wrote this primarily for OCIScript's community.
 If you want to use it outside of OCI, please, do so. It would only make the time we spent, worth more. Unfortunately, our time, ressources and willingness, ends at the border of OCI. You're always welcome to ask your questions, but we reserve our priorities to help OCI users.
