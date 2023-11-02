@@ -103,5 +103,13 @@ If you want to use it outside of OCI, please, do so. It would only make the time
 
 
 
+The Git pull.txt, also installs and activates the oracle-cloud-agent(https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/manage-plugins.htm#install-agent)
+It does so, because the current community Debian image is not configured properly, to send metrics back to the OCI management plane.
+This enables the metrics namespace: OCI_ComputeAgent to work properly again.
+
+If you do not wish this to happen, simply remove the lines:
+* sudo apt install snapd
+* sudo snap install oracle-cloud-agent --classic
+
 # TODO
 Adjust the PROMPT_COMMAND to include IdleRunner, to make sure commands are fired, as soon as a user logs in
