@@ -5,9 +5,11 @@ cd IdleRunner
 chmod +x IdleRunner.sh
 chmod +x IdleRunnerSetup.sh
 ./IdleRunnerSetup.sh
-source /etc/bash.bashrc
 cd Boinc
 chmod +x BoincInstaller.sh
 chmod +x TrackBoincWork_Realtime.sh
 ./BoincInstaller.sh
+
+
+source /etc/bash.bashrc
 ./TrackBoincWork_Realtime.sh

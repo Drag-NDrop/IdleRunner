@@ -106,4 +106,7 @@ else
 fi
 
 #Reload the global bash rc..
-source /etc/bash.bashrc
+echo "Completed installation of IdleRunner. Please make sure to do the following:"
+echo "1) Re-Source your bash configuration. Use this command: source /etc/bash.bashrc"
+echo "2) Configure IdleRunner's config file, to your preferences."
+echo "You'll find the config file here(fired with nano): nano /home/debian/IdleRunner/.IdleRunner.config"

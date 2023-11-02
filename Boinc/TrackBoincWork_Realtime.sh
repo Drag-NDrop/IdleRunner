@@ -22,18 +22,19 @@ while read -r line; do
         fraction_done=""
     fi
 done <<< "$tasks_output"
-echo "::: Contents of ActivityFile ::: "
-file="/tmp/IdleRunnerActivityTracker.log"  # Replace with the path to your file
 
+file="/tmp/IdleRunnerActivityTracker.log"  # Replace with the path to your file
 if [[ -f "$file" ]]; then
     content=$(<"$file")  # Read the file content into a variable
-    echo "$content"
+    echo "::: Contents of ActivityFile and current timestamp for comparison::: "
+    echo "ActivityFile: $content"
+    echo "Current time: $(date '+%F %T')"
     if [[ "$content" == "1" ]]; then
         echo "IdleRunner detected user activity. Boinc progress should be suspended..."
     elif [[ "$content" == "0" ]]; then
     echo "IdleRunner detected no user activity. Boinc progress should be resumed..."
     else
-        echo "The file does not contain 1 or 0. It should be evaluated by IdleRunner shortly."
+        echo "The file does not contain a 0. It should be evaluated by IdleRunner shortly."
     fi
 else
     echo "The file does not exist."

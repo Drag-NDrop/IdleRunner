@@ -81,7 +81,7 @@ fi
   # Get the current Unix timestamp
   datetime_timestamp=$(date -d "$recentActivityTimestamp" +"%s")
   current_timestamp=$(date +"%s")
-  # Calculate the threshold (5 minutes in the past)
+  # Calculate the threshold (X minutes in the past)
   threshold=$((current_timestamp - (ConsiderMeIdleAfterMinutes*60)))
  if [[ $Debug == 1 ]]; then
     echo "$threshold"
