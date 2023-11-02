@@ -11,6 +11,6 @@ chmod +x TrackBoincWork_Realtime.sh
 ./BoincInstaller.sh
 
 
-source /etc/bash.bashrc
+
 
 ./TrackBoincWork_Realtime.sh

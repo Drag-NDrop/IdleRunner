@@ -90,8 +90,7 @@ echo "Cron job created or updated to run $script_path every $CronFrequencyInMinu
 ############ ***************************** #################
 
 # Define the PROMPT_COMMAND
-PROMPT_COMMAND="PROMPT_COMMAND=\"date '+%F %T' > \"$PathToActivityFile\"\""
-
+PROMPT_COMMAND="PROMPT_COMMAND=\"date '+%F %T' > \"$PathToActivityFile\"\" && /home/debian/IdleRunner/IdleRunner.sh > /dev/null"
 
 # Backup the original configuration file, first.
 sudo cp /etc/bash.bashrc /etc/bash.bashrc.bak

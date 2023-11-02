@@ -77,15 +77,16 @@ fi
 
 
 
-
 # Convert recentActivityTimestamp to a Unix timestamp
   # Get the current Unix timestamp
   datetime_timestamp=$(date -d "$recentActivityTimestamp" +"%s")
   current_timestamp=$(date +"%s")
   # Calculate the threshold (5 minutes in the past)
   threshold=$((current_timestamp - (ConsiderMeIdleAfterMinutes*60)))
-
-  if [ "$datetime_timestamp" -gt "$threshold" ]; then
+ if [[ $Debug == 1 ]]; then
+    echo "$threshold"
+ fi 
+  if [ "$datetime_timestamp" -lt "$threshold" ]; then
     echo "The datetime is more than 5 minutes in the past." #Debug
         #Fire command here
          eval "$FireThisWhenIdle"
@@ -94,8 +95,7 @@ fi
 
          exit 0
   else
-    echo "The datetime is within the last 5 minutes or in the future." #Debug
+    echo "The datetime is within the last $ConsiderMeIdleAfterMinutes minutes or in the future." #Debug
         #Fire command here
         eval "$FireThisWhenNotIdle"
-        echo "1" > "$PathToActivityFile"
   fi
