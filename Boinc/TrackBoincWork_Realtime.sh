@@ -38,13 +38,17 @@ if [[ -f "$file" ]]; then
 else
     echo "The file does not exist."
 fi
-echo <<EOF
+
+cat <<EOF
+
+::: Task States Description :::
+
 READY: Tasks in the "READY" state are waiting to be executed. They are queued up and ready to run, but they have not started execution yet.
 IN_PROGRESS: This state indicates that a task is currently being executed on a host.
 SUSPENDED: You mentioned this state earlier. A "SUSPENDED" task is temporarily paused and not actively running. This state is often used when the user or the BOINC manager has suspended the task's execution.
-UNINITIALIZED:         You mentioned this state as well. An "UNINITIALIZED" state might be used to describe a task that hasn't been properly initialized or started yet.
-ERROR:                 This state is assigned to tasks that encountered an error during execution. The error can be due to various reasons, such as a computational issue, missing input data, or a system-related problem.
-UPLOADING/SENDING:     These states indicate that a task is in the process of sending its results back to the project's servers.
+UNINITIALIZED: You mentioned this state as well. An "UNINITIALIZED" state might be used to describe a task that hasn't been properly initialized or started yet.
+ERROR: This state is assigned to tasks that encountered an error during execution. The error can be due to various reasons, such as a computational issue, missing input data, or a system-related problem.
+UPLOADING/SENDING: These states indicate that a task is in the process of sending its results back to the project's servers.
 DOWNLOADING/RECEIVING: These states indicate that a task is in the process of downloading input data or receiving new work units from the project's servers.
 EOF
 
