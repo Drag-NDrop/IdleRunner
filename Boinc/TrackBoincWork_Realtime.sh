@@ -22,6 +22,22 @@ while read -r line; do
         fraction_done=""
     fi
 done <<< "$tasks_output"
+echo "::: Contents of ActivityFile ::: "
+file="/tmp/IdleRunnerActivityTracker.log"  # Replace with the path to your file
+
+if [[ -f "$file" ]]; then
+    content=$(<"$file")  # Read the file content into a variable
+    if [[ "$content" == "1" ]]; then
+        echo "IdleRunner detected user activity. Boinc progress should be suspended..."
+    elif [[ "$content" == "0" ]]; then
+    echo "IdleRunner detected no user activity. Boinc progress should be resumed..."
+    else
+        echo "The file does not contain 1 or 0."
+    fi
+else
+    echo "The file does not exist."
+fi
+
 
     sleep 10
 done
