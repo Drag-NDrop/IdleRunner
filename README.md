@@ -28,7 +28,7 @@ IdleRunner's primary purpose is to provide a way to manage server workloads effi
 For a while, InsidiousFiddler and i contemplated to write this in C++. We went away from that, as it seemed like overkill.
 I've stuck with Bash, to make it as accessible and readable as possible, for the larger userbase that uses Debian.
 
-In its current condition, it's set up to do a testdrive of a distributed computing client, named Boinc.
+In its current condition, it's set up to do a testdrive of a distributed computing client, named Boinc. The main purpose of this, is to see how reliable we can make IdleRunner work.
 Boinc is created by developers from Berkeley University.
 
 Once opinions and inputs has been gathered, it will be stripped down to its minimum components, and will be offered as a stand-alone tool.
