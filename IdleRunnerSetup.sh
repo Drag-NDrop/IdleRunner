@@ -100,6 +100,7 @@ Update_ActivityLog_And_Run_IdleRunner() {
     /home/debian/IdleRunner/IdleRunner.sh > /dev/null
 }
 PROMPT_COMMAND="Update_ActivityLog_And_Run_IdleRunner"
+# /Added by IdleRunner
 EOF
 )
 
