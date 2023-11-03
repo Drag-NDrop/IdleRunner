@@ -70,10 +70,10 @@ To make sure everything is as reversible as possible, a backup of BashRC is is c
 ### Setup - IdleRunner Configuration
 IdleRunner's configuration includes the following flags:
 - **Debug**: Set to 1 for debugging.
-  - Changing value does not require IdleRunnerSetup.sh to be run again.
+  - Changing value does not require `IdleRunnerSetup.sh` to be run again.
   
 - **PathToActivityFile**: The path to the activity log file.
-  - Changing this setting, requires a manual cleanup of the /etc/bash.bashrc. And to run IdleRunnerSetup.sh again.
+  - Changing this setting, requires a manual cleanup of the `/etc/bash.bashrc`. And to run `IdleRunnerSetup.sh` again.
 - **ConsiderMeIdleAfterMinutes**: The duration of idle time before the system is considered idle.
   - Changing value does not require IdleRunnerSetup.sh to be run again.
   
@@ -84,8 +84,8 @@ IdleRunner's configuration includes the following flags:
   - Changing value does not require IdleRunnerSetup.sh to be run again.
   
 - **CronFrequencyInMinutes**: The frequency of the Cron job in minutes.
-  - Changing this setting, requires IdleRunnerSetup.sh to be run again. After that, go to a manual cleanup of the /etc/bash.bashrc
-  - In the bashrc, you'd see 2 blocks added to it, by IdleRunner. You only need one of the blocks. Added a comment "#Added by IdleRunner", to make it easier for you to spot.
+  - Changing this setting, requires `IdleRunnerSetup.sh` to be run again. After that, you have to do a manual cleanup of the `/etc/bash.bashrc`
+  - In the bashrc, you'd see 2 blocks added to it, by IdleRunner. You only need one of the blocks. In anticipation that this might be needed, I've added a comment `#Added by IdleRunner`, to make it easier for you to spot where IdleRunner operates in your BashRC.
 
 ### Setup - Cron
 The Cron job runs IdleRunner at a specified frequency to evaluate whether the system's interactive sessions are idle. It checks user connections and the `IdleRunnerActivityTracker.log` file. If the system is idle, it executes the defined commandline; otherwise, it executes a different commandline.
