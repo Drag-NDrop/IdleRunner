@@ -42,7 +42,7 @@ I've tried to keep the amount of dependencies on as low a level as possible.
 Currently, of dependencies the project needs to work, is:
 
 <u>IdleRunner</u>
-* Package: `sudo`
+* Package: `sudo` - This is the only dependency, the commands in this repo, will not set up for you. Please do so manually.
 * Package: `cron`
 
 <u>Boinc</u><br>
