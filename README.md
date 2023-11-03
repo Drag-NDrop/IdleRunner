@@ -36,22 +36,22 @@ I've tried to keep the amount of dependencies on as low a level as possible.
 Currently, of dependencies the project needs to work, is:
 
 <u>IdleRunner</u>
-* Package: sudo
-* Package: cron
+* Package: `sudo`
+* Package: `cron`
 
 <u>Boinc</u><br>
-* Repository: universe
-* Package: boinc-client
+* Repository: `universe`
+* Package: `boinc-client`
 
 <u>Oracle Cloud Agent</u>
-* Package: snapd
-* Package: oracle-cloud-agent
+* Package: `snapd`
+* Package: `oracle-cloud-agent`
 
 ## Setup
 To get started, i recommend using the Community image: "Debian AMD64".
 That's where i've performed all the testing i have done.
 
-The file: "Git pull.txt" - contains all the command you would need, to set up IdleRunner.
+The file: `Git pull.txt` - contains all the command you would need, to set up IdleRunner.
 The configuration file should be editted, before proceeding to launch the IdleRunnerSetup.sh.
 
 Remember to re-source bashrc, once IdleRunnerSetup.sh has run. Otherwise, the solution will not work as expected.
@@ -64,7 +64,7 @@ Re-source command: `source /etc/bash.bashrc`
 
 ### Setup - BashRC Configuration
 The setup script modifies the global BashRC by adding a line to set `PROMPT_COMMAND`, which records timestamps in `/tmp/IdleRunnerActivityTracker.log`. This timestamp is used to determine idle time.
-The logic that is fired, when PROMPT_COMMAND condition is triggered, is stored in the function: Update_ActivityLog_And_Run_IdleRunner.
+The logic that is fired, when PROMPT_COMMAND condition is triggered, is stored in the function: `Update_ActivityLog_And_Run_IdleRunner`
 To make sure everything is as reversible as possible, a backup of BashRC is is created, during the IdleRunner setup.
 
 ### Setup - IdleRunner Configuration
@@ -91,17 +91,17 @@ IdleRunner's configuration includes the following flags:
 The Cron job runs IdleRunner at a specified frequency to evaluate whether the system's interactive sessions are idle. It checks user connections and the `IdleRunnerActivityTracker.log` file. If the system is idle, it executes the defined commandline; otherwise, it executes a different commandline.
 
 ### Setup - Paths of interest
-Global Bash configuration file:   /etc/bash/bash.rc
-The backup file created, before IdleRunnerSetup.sh added changes to the global BashRC:  /etc/bash.bashrc.bak
+Global Bash configuration file:   `/etc/bash/bash.rc`
+The backup file created, before `IdleRunnerSetup.sh` added changes to the global BashRC:  `/etc/bash.bashrc.bak`
 
-IdleRunner activity tracker file: /tmp/IdleRunnerActivityTracker.log(Or whatever you wrote into the IdleRunner config, before installing)
-Boinc client configuration file:  /etc/boinc-client/cc_config.xml
-IdleRunner configuration file:    /home/debian/IdleRunner/.IdleRunner.config
+IdleRunner activity tracker file: `/tmp/IdleRunnerActivityTracker.log`(Or whatever you wrote into the IdleRunner config, before installing)
+Boinc client configuration file:  `/etc/boinc-client/cc_config.xml`
+IdleRunner configuration file:    `/home/debian/IdleRunner/.IdleRunner.config`
 
 
 ### Setup - Commands of interest
-See currently active Boinc work(developer debug script): /home/debian/IdleRunner/Boinc/TrackBoincWork_Realtime.sh
-See content of users crontab:	 						 crontab -u debian -l
+See currently active Boinc work(developer debug script): `/home/debian/IdleRunner/Boinc/TrackBoincWork_Realtime.sh`
+See content of users crontab:	 						 `crontab -u debian -l`
 
 
 ## Entering and Exiting Idle State
