@@ -102,12 +102,12 @@ The backup file created, before `IdleRunnerSetup.sh` added changes to the global
 
 IdleRunner activity tracker file: `/tmp/IdleRunnerActivityTracker.log`(Or whatever you wrote into the IdleRunner config, before installing)
 Boinc client configuration file:  `/etc/boinc-client/cc_config.xml`
-IdleRunner configuration file:    `/home/debian/IdleRunner/.IdleRunner.config`
+IdleRunner configuration file:    `~/IdleRunner/.IdleRunner.config`
 
 
 ### Setup - Commands of interest
-See currently active Boinc work(developer debug script): `/home/debian/IdleRunner/Boinc/TrackBoincWork_Realtime.sh`
-See content of users crontab:	 						 `crontab -u debian -l`
+See currently active Boinc work(developer debug script): `~/IdleRunner/Boinc/TrackBoincWork_Realtime.sh`
+See content of users crontab:	 						 `crontab -u $(whoami) -l`
 
 
 ## Entering and Exiting Idle State

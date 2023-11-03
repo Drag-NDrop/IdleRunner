@@ -1,6 +1,6 @@
 #!/bin/bash
 #Config file location
-config_file="/home/debian/IdleRunner/.IdleRunner.config"
+config_file="~/IdleRunner/.IdleRunner.config"
 
 
 if ! dpkg -l | grep -q cron; then
@@ -70,34 +70,34 @@ if [ -f "$config_file" ]; then
   echo "Cron frequency: $CronFrequencyInMinutes" # Debug
 fi
 # Define the script and its path
-script_path="/home/debian/IdleRunner/IdleRunner.sh"
+script_path="~/IdleRunner/IdleRunner.sh"
 
 # Define the cron schedule (every 5 minutes)
 cron_schedule="*/$CronFrequencyInMinutes * * * *"
 
 # Check if the cron job already exists for the user - Send to null to avoid the errormessage about the current user having no cron
-if sudo -u debian crontab -l 2>/dev/null | grep -q "$script_path"; then
+if sudo -u $(whoami) crontab -l 2>/dev/null | grep -q "$script_path"; then
   echo "Cron job already exists. Updating..."
   # Remove the existing cron job - Send to null to avoid the errormessage about the current user having no cron
-  (sudo -u debian crontab -l 2>/dev/null | grep -v "$script_path") | sudo -u debian crontab - 2>/dev/null
+  (sudo -u $(whoami) crontab -l 2>/dev/null | grep -v "$script_path") | sudo -u $(whoami) crontab - 2>/dev/null
 fi
 
 # Add the new cron job for the user - Send to null to avoid the errormessage about the current user having no cron
-(sudo -u debian crontab -l 2>/dev/null; echo "$cron_schedule $script_path") | sudo -u debian crontab - 2>/dev/null
+(sudo -u $(whoami) crontab -l 2>/dev/null; echo "$cron_schedule $script_path") | sudo -u $(whoami) crontab - 2>/dev/null
 
 echo "Cron job created or updated to run $script_path every $CronFrequencyInMinutes minutes."
 
 ############ ***************************** #################
 
 # Define the PROMPT_COMMAND
-#PROMPT_COMMAND="PROMPT_COMMAND=\"date '+%F %T' > \"$PathToActivityFile\"\" && /home/debian/IdleRunner/IdleRunner.sh > /dev/null"
+
 
 PROMPT_COMMAND=$(cat <<EOF
 # Added by IdleRunner
 Update_ActivityLog_And_Run_IdleRunner() {
     local timestamp=\$(date '+%F %T')
     echo "\$timestamp" > "$PathToActivityFile"
-    /home/debian/IdleRunner/IdleRunner.sh > /dev/null
+    ~/IdleRunner/IdleRunner.sh > /dev/null
 }
 PROMPT_COMMAND="Update_ActivityLog_And_Run_IdleRunner"
 # /Added by IdleRunner
@@ -126,4 +126,4 @@ fi
 echo "Completed installation of IdleRunner. Please make sure to do the following:"
 echo "1) Re-Source your bash configuration. Use this command: source /etc/bash.bashrc"
 echo "2) Configure IdleRunner's config file, to your preferences."
-echo "You'll find the config file here(fired with nano): nano /home/debian/IdleRunner/.IdleRunner.config"
+echo "You'll find the config file here(fired with nano): nano ~/IdleRunner/.IdleRunner.config"
