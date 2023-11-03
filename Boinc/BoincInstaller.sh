@@ -15,8 +15,8 @@ InstallBoincClient(){
     cc_config_path = '/etc/boinc-client/cc_config.xml'
 
 
-    mkdir $HOME/boinc
-    cd $HOME/boinc
+    mkdir $HOME/IdleRunner/Boinc
+    cd $HOME/IdleRunner/Boinc
     
     sudo add-apt-repository --remove ppa:costamagnagianfranco/boinc
     sudo add-apt-repository universe
