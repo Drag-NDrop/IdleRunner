@@ -25,7 +25,8 @@ IdleRunner is a utility designed to manage and optimize system workloads based o
 IdleRunner's primary purpose is to provide a way to manage server workloads efficiently. It ensures that the system administrator or user can work without being interrupted by high workloads that could otherwise be paused. The aim is to maintain a responsive and efficient system.
 
 ## Design
-To operate effectively, IdleRunner requires specific setup steps, including:
+For a while, InsidiousFiddler and i contemplated to write this in C++. We went away from that, as it seemed like overkill.
+I've stuck with Bash, to make it as accessible and readable as possible, for the larger userbase that uses Debian.
 
 ### The BASH PROMPT_COMMAND Flag
 IdleRunner leverages the `PROMPT_COMMAND` flag, which runs a command just before the prompt is displayed to the user. This allows IdleRunner to measure idle time accurately by recording timestamps. Privacy is of primary concern. I've kept the data it records, as anonymous and "to the point" as possible.
