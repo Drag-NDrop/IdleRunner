@@ -28,6 +28,11 @@ IdleRunner's primary purpose is to provide a way to manage server workloads effi
 For a while, InsidiousFiddler and i contemplated to write this in C++. We went away from that, as it seemed like overkill.
 I've stuck with Bash, to make it as accessible and readable as possible, for the larger userbase that uses Debian.
 
+In its current condition, it's set up to do a testdrive of a distributed computing client, named Boinc.
+Boinc is created by developers from Berkeley University.
+
+Once opinions and inputs has been gathered, it will be stripped down to its minimum components, and will be offered as a stand-alone tool.
+
 ### The BASH PROMPT_COMMAND Flag
 IdleRunner leverages the `PROMPT_COMMAND` flag, which runs a command just before the prompt is displayed to the user. This allows IdleRunner to measure idle time accurately by recording timestamps. Privacy is of primary concern. I've kept the data it records, as anonymous and "to the point" as possible.
 Which is why you will not be able to see which user last updated the timestamp. You will only see a timestamp, or a zero.
