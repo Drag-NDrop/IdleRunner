@@ -1,6 +1,6 @@
 #!/bin/bash
 # Define the path to the config file
-config_file="~/IdleRunner/.IdleRunner.config"
+config_file="$HOME/IdleRunner/.IdleRunner.config"
 
 ### Load config file ###
 # Check if the config file exists

@@ -1,6 +1,6 @@
 #!/bin/bash
 #Config file location
-config_file="~/IdleRunner/.IdleRunner.config"
+config_file="$HOME/IdleRunner/.IdleRunner.config"
 
 
 if ! dpkg -l | grep -q cron; then
@@ -70,7 +70,7 @@ if [ -f "$config_file" ]; then
   echo "Cron frequency: $CronFrequencyInMinutes" # Debug
 fi
 # Define the script and its path
-script_path="~/IdleRunner/IdleRunner.sh"
+script_path="$HOME/IdleRunner/IdleRunner.sh"
 
 # Define the cron schedule (every 5 minutes)
 cron_schedule="*/$CronFrequencyInMinutes * * * *"
@@ -97,7 +97,7 @@ PROMPT_COMMAND=$(cat <<EOF
 Update_ActivityLog_And_Run_IdleRunner() {
     local timestamp=\$(date '+%F %T')
     echo "\$timestamp" > "$PathToActivityFile"
-    ~/IdleRunner/IdleRunner.sh > /dev/null
+    $HOME/IdleRunner/IdleRunner.sh > /dev/null
 }
 PROMPT_COMMAND="Update_ActivityLog_And_Run_IdleRunner"
 # /Added by IdleRunner
@@ -126,4 +126,4 @@ fi
 echo "Completed installation of IdleRunner. Please make sure to do the following:"
 echo "1) Re-Source your bash configuration. Use this command: source /etc/bash.bashrc"
 echo "2) Configure IdleRunner's config file, to your preferences."
-echo "You'll find the config file here(fired with nano): nano ~/IdleRunner/.IdleRunner.config"
+echo "You'll find the config file here(fired with nano): nano $HOME/IdleRunner/.IdleRunner.config"

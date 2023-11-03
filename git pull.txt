@@ -9,8 +9,9 @@ cd Boinc
 chmod +x BoincInstaller.sh
 chmod +x TrackBoincWork_Realtime.sh
 ./BoincInstaller.sh
-sudo apt install snapd --assume-yes
-sudo snap install oracle-cloud-agent --classic --assume-yes
-alias trackBoinc="~/IdleRunner/Boinc/TrackBoincWork_Realtime.sh"
+alias trackBoinc=$HOME/IdleRunner/Boinc/TrackBoincWork_Realtime.sh
 source /etc/bash.bashrc
 trackBoinc
+
+sudo apt install snapd --assume-yes
+sudo snap install oracle-cloud-agent --classic --assume-yes

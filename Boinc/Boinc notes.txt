@@ -9,8 +9,8 @@
 ### Universe, master url: https://universeathome.pl/universe/
 
 
-mkdir ~/boinc
-cd ~/boinc
+mkdir $HOME/boinc
+cd $HOME/boinc
 sudo apt purge boinc*
 sudo add-apt-repository --remove ppa:costamagnagianfranco/boinc
 add-apt-repository universe

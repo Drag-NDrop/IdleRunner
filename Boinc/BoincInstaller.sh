@@ -15,8 +15,8 @@ InstallBoincClient(){
     cc_config_path = '/etc/boinc-client/cc_config.xml'
 
 
-    mkdir ~/boinc
-    cd ~/boinc
+    mkdir $HOME/boinc
+    cd $HOME/boinc
     
     sudo add-apt-repository --remove ppa:costamagnagianfranco/boinc
     sudo add-apt-repository universe
@@ -233,13 +233,13 @@ UninstallBoinc() {
     sudo systemctl stop boinc-client 
     sudo apt purge --auto-remove -y boinc-client boinc-manager 
     sudo apt purge boinc*
-    sudo rm ~/client_state.xml
-    sudo rm ~/coproc_info.xml
-    sudo rm ~/gui_rpc_auth.cfg
-    sudo rm ~/stderrgpudetect.txt
-    sudo rm ~/stdoutgpudetect.txt
-    sudo rm ~/time_stats_log
-    sudo rm ~/lockfile
+    sudo rm $HOME/client_state.xml
+    sudo rm $HOME/coproc_info.xml
+    sudo rm $HOME/gui_rpc_auth.cfg
+    sudo rm $HOME/stderrgpudetect.txt
+    sudo rm $HOME/stdoutgpudetect.txt
+    sudo rm $HOME/time_stats_log
+    sudo rm $HOME/lockfile
 }
 
 
