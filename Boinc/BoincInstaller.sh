@@ -192,7 +192,7 @@ EOF
     echo "The BOINC client is now configured with the details you entered."
     echo "If you wish to see how much work you've contributed using this solution, visit:"
     echo -e "\e[36mhttps://universeathome.pl/universe/home.php\e[0m \n"
-    echo -e "If you would want to adjust the CPU usage and CPU time Boinc is allowed to use, you can do so, here: \n"
+    echo -e "If you would want to adjust the CPU usage and CPU time Boinc is allowed to use, you can do so, here:"
     echo -e "\e[36mhttps://universeathome.pl/universe/prefs.php?subset=global \e[0m \n"
     echo "Make a note of it if needed, as this information will not be shown again."
     sudo chmod 644 /var/lib/boinc-client/gui_rpc_auth.cfg
