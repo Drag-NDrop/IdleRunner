@@ -40,6 +40,21 @@ else
     echo "The file does not exist."
 fi
 
+echo -e "\n _Boinc CPU Configuration_"
+FILE="/var/lib/boinc/global_prefs.xml"
+# Check if the file exists
+if [ -f "$FILE" ]; then
+    # Extract the values
+    max_ncpus_pct=$(grep "<max_ncpus_pct>" $FILE | sed -n 's:.*<max_ncpus_pct>\(.*\)</max_ncpus_pct>.*:\1:p')
+    cpu_usage_limit=$(grep "<cpu_usage_limit>" $FILE | sed -n 's:.*<cpu_usage_limit>\(.*\)</cpu_usage_limit>.*:\1:p')
+
+    # Output the values
+    echo "Max amount of CPU's allowed for Boinc to use: $max_ncpus_pct%"
+    echo "Max amount of CPU time allowed for Boinc:     $cpu_usage_limit%"
+else
+    echo "Error: File does not exist."
+fi
+
 cat <<EOF
 
 ::: Task States Description :::
@@ -52,8 +67,6 @@ ERROR: This state is assigned to tasks that encountered an error during executio
 UPLOADING/SENDING: These states indicate that a task is in the process of sending its results back to the project's servers.
 DOWNLOADING/RECEIVING: These states indicate that a task is in the process of downloading input data or receiving new work units from the project's servers.
 EOF
-
-
 
     sleep 10
 done
