@@ -14,7 +14,7 @@ alias Boinc_track='$HOME/IdleRunner/Boinc/TrackBoincWork_Realtime.sh'
 alias Boinc_update_CPU_Settings='boinccmd --project https://universeathome.pl/universe/ update'
 
 source /etc/bash.bashrc
-trackBoinc
+Boinc_track
 
 # For installing Oracle OCI Management agent
 #sudo apt install snapd --assume-yes
