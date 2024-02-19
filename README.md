@@ -140,3 +140,7 @@ If you experience an issue with IdleRunner, please do let me know on the communi
 
 For additional details, visit the OCI Script Community on Discord: https://discord.gg/8eNtPhvhkz
 
+
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/Drag-NDrop/IdleRunner.svg?variant=adaptive)](https://starchart.cc/Drag-NDrop/IdleRunner)
+
