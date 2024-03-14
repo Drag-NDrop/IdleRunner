@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get update
 sudo apt-get install git --assume-yes
 git clone https://github.com/Drag-NDrop/IdleRunner
