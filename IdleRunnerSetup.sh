@@ -99,7 +99,7 @@ Update_ActivityLog_And_Run_IdleRunner() {
    local activityfile="/tmp/IdleRunnerActivityTracker.log"
    [ -f $activityfile ] || touch $activityfile
    echo "$timestamp" > "/tmp/IdleRunnerActivityTracker.log"
-   /home/ubuntu/IdleRunner/IdleRunner.sh > /dev/null
+   $HOME/IdleRunner/IdleRunner.sh > /dev/null
 }   
 PROMPT_COMMAND="Update_ActivityLog_And_Run_IdleRunner"
 # /Added by IdleRunner
